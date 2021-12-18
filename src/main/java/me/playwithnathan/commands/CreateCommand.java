@@ -100,7 +100,7 @@ public class CreateCommand {
         board.setEntries(Integer.parseInt(args.get(7)));
 
         // Location
-        Location playerLoc = player.getLocation().add(0, 2, 0);
+        Location playerLoc = player.getLocation().add(0, 3, 0);
         board.setWorld(playerLoc.getWorld());
         board.setX(Math.round( playerLoc.getX() * 10.0 )/10.0);
         board.setY(Math.round( playerLoc.getY() * 10.0 )/10.0);
