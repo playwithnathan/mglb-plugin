@@ -1,0 +1,11 @@
+name: Minigame-Leaderboard
+version: 1.0
+main: me.playwithnathan.Main
+api-version: 1.17
+authors: [ playwithnathan ]
+depend: [ Vault, HolographicDisplays, MinigameMaker ]
+description: A plugin to display a leaderboard from mgm
+commands:
+  mglb:
+    description: All commands are based off this one
+    usage: /mglb

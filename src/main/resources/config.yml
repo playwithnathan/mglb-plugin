@@ -1,0 +1,28 @@
+database:
+  host: '127.0.0.1'
+  port: '3306' # default is 3306
+  database: 'DATABASE'
+  user: 'USERNAME'
+  password: 'PASSWORD'
+
+permissions:
+  admin: 'staff.admin'
+
+format:
+  default: '-= %player% -=- %stat% =-'
+
+boards:
+  # example board for an event called Railgun and the board is going to display the players with the highest Wins
+  railgun:
+    table: 'eventRailgun'
+    column: 'wins'
+    title: 'Railgun - Wins'
+    format: 'default' # correlates with names from 'format:' section above
+    order: 'high' # can be 'high' or 'low'. Based upon which stats are going to be displayed at the top
+    reload: 300 # how often to reload the board's data in seconds
+    entries: 5 # number of players + their stats displayed (each is one line)
+    location:
+      world: 'world'
+      x: 0
+      y: 100
+      z: 0
