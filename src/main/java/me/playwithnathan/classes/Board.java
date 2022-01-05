@@ -27,6 +27,7 @@ public class Board {
 
     Hologram hologram;
     BukkitTask task;
+    boolean running;
 
     public Board(String id) {
         this.id = id;
@@ -150,5 +151,13 @@ public class Board {
 
     public void setTask(BukkitTask task) {
         this.task = task;
+    }
+
+    public boolean getRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 }

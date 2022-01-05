@@ -55,7 +55,7 @@ public class Database {
     public static String getStat(Board board, String uuid) {
         String stat = "-1";
         try {
-            PreparedStatement ps = con.prepareStatement("SELECT " +  board.getColumn() + " FROM " + board.getTable() + " WHERE UUID = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT " + board.getColumn() + " FROM " + board.getTable() + " WHERE UUID = ?");
             ps.setString(1, uuid);
 
             ResultSet rs = ps.executeQuery();
@@ -69,7 +69,7 @@ public class Database {
     public static void setStat(Board board, String uuid) {
         try {
             PreparedStatement ps = con.prepareStatement("UPDATE " + board.getTable() + " SET " + board.getColumn() + " = ? WHERE uuid = ?");
-            ps.setString(1, "0");
+            ps.setInt(1, 0);
             ps.setString(2, uuid);
 
             ps.executeUpdate();

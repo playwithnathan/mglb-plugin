@@ -42,7 +42,13 @@ public class BoardUtil {
     }
 
     private static void appendLines(Board board, Hologram hologram, boolean clear) {
+        // If process is already running then don't run again
+        if(!board.getRunning()) return;
+
         Bukkit.getScheduler().runTaskAsynchronously(instance, () -> {
+            // Process is running
+            board.setRunning(true);
+
             List<String> uuids = Database.getPlayers(board.getTable());
 
             // Sort stats (bubble sort)
@@ -104,7 +110,11 @@ public class BoardUtil {
                 )));
             }
 
+            // Set hologram to board
             board.setHologram(hologram);
+
+            // Process is finished
+            board.setRunning(false);
         });
     }
 
