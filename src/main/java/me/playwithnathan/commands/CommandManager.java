@@ -1,7 +1,7 @@
 package me.playwithnathan.commands;
 
 import me.playwithnathan.Main;
-import me.playwithnathan.util.ConfigUtil;
+import me.playwithnathan.util.Perms;
 import me.playwithnathan.util.PlayerUtil;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.command.Command;
@@ -20,9 +20,8 @@ public class CommandManager implements CommandExecutor {
         Player player = (Player) sender;
 
         Permission perms = Main.getPermissions();
-        ConfigUtil configUtil = Main.getConfigUtil();
 
-        if(!perms.has(player, configUtil.getPerm("admin"))) {
+        if(!perms.has(player, Perms.ADMIN.getPerm())) {
             PlayerUtil.helpMessage(player);
             return true;
         }

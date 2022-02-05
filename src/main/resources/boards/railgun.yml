@@ -1,0 +1,12 @@
+table: eventRailgun
+column: wins
+title: Railgun - Wins
+format: default # correlates with names from 'format:' section above
+order: high # can be 'high' or 'low'. Based upon which stats are going to be displayed at the top
+reload: 300 # how often to reload the board's data in seconds
+entries: 5 # number of players + their stats displayed (each is one line)
+location:
+  world: world
+  x: 0
+  y: 100
+  z: 0

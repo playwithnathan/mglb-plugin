@@ -20,7 +20,6 @@ public final class Main extends JavaPlugin {
     private final Logger log = getLogger();
     private static Main instance;
     private static Permission perms;
-    private static ConfigUtil configUtil;
 
     @Override
     public void onEnable() {
@@ -35,14 +34,11 @@ public final class Main extends JavaPlugin {
         if(rspPerms == null) throw new RuntimeException("Disabled because a Permission plugin wasn't found");
         perms = rspPerms.getProvider();
 
-        // Boot config.yml
-        configUtil = new ConfigUtil();
-
         // Database
         Database.connect();
 
         // Load boards
-        configUtil.loadBoards();
+        ConfigUtil.loadBoards();
 
         // Register commands
         registerCommand(new CommandManager(), "mglb");
@@ -88,10 +84,6 @@ public final class Main extends JavaPlugin {
 
     public static Permission getPermissions() {
         return perms;
-    }
-
-    public static ConfigUtil getConfigUtil() {
-        return configUtil;
     }
 
     @Override

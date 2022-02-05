@@ -1,7 +1,7 @@
 package me.playwithnathan.classes;
 
 import me.playwithnathan.Main;
-import me.playwithnathan.util.ConfigUtil;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,12 +14,12 @@ public class Database {
     private static Connection con;
 
     public static void connect() {
-        ConfigUtil configUtil = Main.getConfigUtil();
-        String host = configUtil.getDB("host");
-        String port = configUtil.getDB("port");
-        String database = configUtil.getDB("database");
-        String user = configUtil.getDB("user");
-        String password = configUtil.getDB("password");
+        FileConfiguration config = Main.getInstance().getConfig();
+        String host = config.getString("database.host");
+        String port = config.getString("database.port");
+        String database = config.getString("database.database");
+        String user = config.getString("database.user");
+        String password = config.getString("database.password");
 
         try {
             con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, user, password);

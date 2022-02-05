@@ -1,29 +1,35 @@
 package me.playwithnathan.classes;
 
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
-import me.playwithnathan.Main;
+import me.playwithnathan.util.ConfigUtil;
 import me.playwithnathan.util.TextUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.io.File;
+
 public class Board {
-    String id;
+    private final String id;
 
-    String table;
-    String column;
+    private File file;
+    private FileConfiguration config;
 
-    String title;
-    String format;
-    String order;
-    int reload;
-    int entries;
+    private String table;
+    private String column;
 
-    World world;
-    double x;
-    double y;
-    double z;
+    private String title;
+    private String format;
+    private String order;
+    private int reload;
+    private int entries;
+
+    private World world;
+    private double x;
+    private double y;
+    private double z;
 
     Hologram hologram;
     BukkitTask task;
@@ -31,6 +37,22 @@ public class Board {
 
     public Board(String id) {
         this.id = id;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setConfig(FileConfiguration config) {
+        this.config = config;
+    }
+
+    public FileConfiguration getConfig() {
+        return config;
     }
 
     public String getId() {
@@ -70,7 +92,7 @@ public class Board {
     }
 
     public String getFormat() {
-        return Main.getConfigUtil().getFormat(getFormatType());
+        return ConfigUtil.getFormat(getFormatType());
     }
 
     public Location getLocation() {

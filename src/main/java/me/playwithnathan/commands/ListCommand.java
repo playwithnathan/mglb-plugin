@@ -4,10 +4,9 @@ import me.playwithnathan.classes.Board;
 import me.playwithnathan.util.BoardUtil;
 import me.playwithnathan.util.PlayerUtil;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class ListCommand extends CommandManager {
-    public ListCommand(@NotNull Player player) {
+    public ListCommand(Player player) {
         // List command title
         PlayerUtil.message(player, "&f&lAll Boards");
 

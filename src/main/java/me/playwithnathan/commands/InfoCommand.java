@@ -5,12 +5,11 @@ import me.playwithnathan.util.BoardUtil;
 import me.playwithnathan.util.PlayerUtil;
 import me.playwithnathan.util.TextUtil;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class InfoCommand extends CommandManager {
-    public InfoCommand(@NotNull Player player, List<String> args) {
+    public InfoCommand(Player player, List<String> args) {
         if(args.size() == 0) {
             PlayerUtil.message(player, "You need to include the board's id.");
             return;
@@ -33,6 +32,7 @@ public class InfoCommand extends CommandManager {
 
         // Send info
         PlayerUtil.message(player,
+                "&eFile: &7" + board.getFile().getName(),
                 "&eId: &7" + board.getId(),
                 "&eTable: &7" + board.getTable(),
                 "&eColumn: &7" + board.getColumn(),

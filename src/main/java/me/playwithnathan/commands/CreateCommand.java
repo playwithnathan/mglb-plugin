@@ -4,20 +4,19 @@ import me.playwithnathan.Main;
 import me.playwithnathan.classes.Board;
 import me.playwithnathan.util.BoardUtil;
 import me.playwithnathan.util.ConfigUtil;
+import me.playwithnathan.util.Perms;
 import me.playwithnathan.util.PlayerUtil;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class CreateCommand {
-    public CreateCommand(@NotNull Player player, List<String> args) {
-        final ConfigUtil configUtil = Main.getConfigUtil();
+    public CreateCommand(Player player, List<String> args) {
         final Permission perms = Main.getPermissions();
 
-        if(!perms.has(player, configUtil.getPerm("admin"))) {
+        if(!perms.has(player, Perms.ADMIN.getPerm())) {
             PlayerUtil.helpMessage(player);
             return;
         }
@@ -107,7 +106,7 @@ public class CreateCommand {
         board.setZ(Math.round( playerLoc.getZ() * 10.0 )/10.0);
 
         // Create board
+        ConfigUtil.createBoard(board);
         BoardUtil.createBoard(board);
-        configUtil.save();
     }
 }

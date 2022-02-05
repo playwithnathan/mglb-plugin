@@ -2,10 +2,9 @@ package me.playwithnathan.commands;
 
 import me.playwithnathan.util.PlayerUtil;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class HelpCommand extends CommandManager {
-    public HelpCommand(@NotNull Player player) {
+    public HelpCommand(Player player) {
         PlayerUtil.message(player, "&f&lMinigame Leaderboard Commands",
                 "&e/mglb list &7Displays all leaderboards.",
                 "&e/mglb create <id> <table> <column> <title> <format> <order> <reload> <entries>&7Create a leaderboard.",
