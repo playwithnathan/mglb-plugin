@@ -31,9 +31,9 @@ public class Board {
     private double y;
     private double z;
 
-    Hologram hologram;
-    BukkitTask task;
-    boolean running;
+    private Hologram hologram;
+    private BukkitTask task;
+    private boolean running;
 
     public Board(String id) {
         this.id = id;
@@ -175,7 +175,7 @@ public class Board {
         this.task = task;
     }
 
-    public boolean getRunning() {
+    public boolean isRunning() {
         return running;
     }
 
